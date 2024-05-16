@@ -11,7 +11,7 @@ import (
 )
 
 type Match struct {
-	ID        string `json:"ID"`
+	URL       string `json:"URL"`
 	Team1     string `json:"Team1"`
 	Team2     string `json:"Team2"`
 	Score     []int  `json:"Score"`
@@ -19,6 +19,7 @@ type Match struct {
 	StartTime string `json:"StartTime"`
 	Tag       string `json:"Tag"`
 	Status    string `json:"Status"`
+	Region    string `json:"Region"`
 }
 
 type resJSON struct {
@@ -48,7 +49,7 @@ func filterMatches(matches []Match, live bool, count int, region string) []Match
 		if live && match.Status != "live" {
 			continue
 		}
-		if region != "" && match.Tag != region {
+		if region != "" && strings.ToLower(match.Region) != region {
 			continue
 		}
 		filteredMatches = append(filteredMatches, match)

@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 var rootCmd = &cobra.Command{
@@ -19,4 +20,16 @@ func Execute() {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
+}
+
+func init() {
+	rootCmd.PersistentFlags().IntP("count", "c", 15, "Number of matches to display.")
+	rootCmd.PersistentFlags().StringP("region", "r", "", `Filter matches by region. Available regions: 
+	eu (EMEA), na (Americas), 
+	apac (Asia Pacific), cn (China), 
+	kr (Korea), jp (Japan), 
+	br (Brazil), es (Spain), 
+	latam (Latin America)`)
+	viper.BindPFlag("count", rootCmd.PersistentFlags().Lookup("count"))
+	viper.BindPFlag("region", rootCmd.PersistentFlags().Lookup("region"))
 }
