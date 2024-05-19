@@ -15,6 +15,7 @@ var resultCmd = &cobra.Command{
 	Long:    `This command allows you to get the latest results of Completed Valorant matches.`,
 	Example: "vlr result",
 	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Wait for the results to load...")
 		getResultsFromApi()
 	},
 }

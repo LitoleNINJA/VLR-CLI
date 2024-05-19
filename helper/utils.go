@@ -69,16 +69,22 @@ func printMatchData(match Match) {
 	if match.Status == "live" {
 		printVariableLengthString(fmt.Sprintf("%d  (%d)", match.Score[0], match.Rounds[0]), 15, color.FgHiGreen)
 		printVariableLengthString(match.StartTime, 15, color.FgHiRed)
-	} else {
+	} else if match.Status == "upcoming" {
 		printVariableLengthString("-", 15, color.FgHiGreen)
 		printVariableLengthString(match.StartTime, 15, color.FgHiCyan)
+	} else {
+		printVariableLengthString(fmt.Sprintf("%d", match.Score[0]), 15, color.FgHiGreen)
+		printVariableLengthString(match.StartTime, 15, color.FgHiRed)
 	}
+
 	fmt.Println()
 	printVariableLengthString(match.Team2, 30, color.FgWhite)
 	if match.Status == "live" {
 		printVariableLengthString(fmt.Sprintf("%d  (%d)", match.Score[1], match.Rounds[1]), 15, color.FgHiYellow)
-	} else {
+	} else if match.Status == "upcoming" {
 		printVariableLengthString("-", 15, color.FgHiYellow)
+	} else {
+		printVariableLengthString(fmt.Sprintf("%d", match.Score[1]), 15, color.FgHiYellow)
 	}
 	printVariableLengthString("", 15, color.FgRed)
 	fmt.Println("\n+----------------------------------------------------------+")
