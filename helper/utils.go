@@ -28,8 +28,6 @@ type resJSON struct {
 }
 
 func ParseResponse(body io.Reader, live bool, count int, region string) {
-	// Clear the previous output
-	fmt.Print("\033[1A\033[K")
 
 	var res resJSON
 	err := json.NewDecoder(body).Decode(&res)
@@ -38,6 +36,9 @@ func ParseResponse(body io.Reader, live bool, count int, region string) {
 	}
 
 	res.Matches = filterMatches(res.Matches, live, count, region)
+
+	// Clear the previous output
+	fmt.Print("\033[1A\033[K")
 	for _, match := range res.Matches {
 		printMatchData(match)
 	}
