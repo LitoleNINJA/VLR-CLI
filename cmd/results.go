@@ -25,7 +25,7 @@ func init() {
 }
 
 func getResultsFromApi() {
-	res, err := http.Get("http://localhost:8080/matches?status=completed")
+	res, err := http.Get("http://vlr-api.centralindia.cloudapp.azure.com/matches?status=completed")
 	if err != nil {
 		fmt.Printf("Error fetching scores: %v\n", err)
 		return

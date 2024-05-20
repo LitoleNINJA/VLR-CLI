@@ -30,7 +30,7 @@ func init() {
 }
 
 func getScoresFromApi() {
-	res, err := http.Get("http://localhost:8080/matches")
+	res, err := http.Get("http://vlr-api.centralindia.cloudapp.azure.com/matches")
 	if err != nil {
 		fmt.Printf("Error fetching scores: %v\n", err)
 		return
