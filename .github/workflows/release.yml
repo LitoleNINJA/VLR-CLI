@@ -30,7 +30,7 @@ jobs:
     - name: Upload binary to release
       uses: actions/upload-artifact@v2
       with:
-        name: bin/vlr-${{ matrix.goos }}-${{ matrix.goarch }}
+        name: vlr-${{ matrix.goos }}-${{ matrix.goarch }}
         path: bin/vlr-${{ matrix.goos }}-${{ matrix.goarch }}
 
   release:
