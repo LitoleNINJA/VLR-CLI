@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	utils "VLR-CLI/helper"
+	utils "vlr-cli/helper"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

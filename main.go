@@ -1,7 +1,7 @@
 package main
 
 import (
-	"VLR-CLI/cmd"
+	"vlr-cli/cmd"
 )
 
 func main() {

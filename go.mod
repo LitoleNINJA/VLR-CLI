@@ -1,4 +1,4 @@
-module VLR-CLI
+module vlr-cli
 
 go 1.18
 
